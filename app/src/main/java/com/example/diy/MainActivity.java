@@ -1,11 +1,14 @@
 package com.example.diy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -127,6 +130,15 @@ public class MainActivity extends AppCompatActivity {
         kerajinan.setAdapter(Kadapter);
         trending.setAdapter(Tadapter);
         article.setAdapter(Aadapter);
+    }
+
+    public void all_kerajinan(View v) {
+        Toast.makeText(this, "Move to All kerajinan", Toast.LENGTH_SHORT).show();
+    }
+
+    public void all_article(View v) {
+        Intent intent = new Intent(this, ArticleFullList.class);
+        startActivity(intent);
     }
 
 }
