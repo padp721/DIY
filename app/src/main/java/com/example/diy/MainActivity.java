@@ -133,7 +133,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void all_kerajinan(View v) {
-        Toast.makeText(this, "Move to All kerajinan", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, NewProduct.class);
+        startActivity(intent);
     }
 
     public void all_article(View v) {
