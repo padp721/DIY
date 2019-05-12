@@ -10,16 +10,26 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder> {
 
     private Context Ctx;
-    private List<ArticleModel> articleList;
+    private ArrayList<Artikel> articleList;
 
-    public ArticleAdapter(Context Ctx, List<ArticleModel> articleList) {
+    public ArticleAdapter(Context Ctx) {
         this.Ctx = Ctx;
-        this.articleList = articleList;
+    }
+
+    private ArrayList<Artikel> getArtikelList() {
+        return articleList;
+    }
+
+    void setListProduct(ArrayList<Artikel> artikelList) {
+        this.articleList = artikelList;
     }
 
     @NonNull
@@ -32,11 +42,13 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
 
     @Override
     public void onBindViewHolder(@NonNull ArticleAdapter.ArticleViewHolder articleViewHolder, int i) {
-        final ArticleModel article = articleList.get(i);
+        final Artikel article = articleList.get(i);
 
         articleViewHolder.textViewName.setText(article.getName());
 
-        articleViewHolder.imageView.setImageDrawable(Ctx.getResources().getDrawable(article.getImage()));
+        Glide.with(Ctx)
+                .load(getArtikelList().get(i).getPhoto())
+                .into(articleViewHolder.imageView);
 
 //        gtrViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
 //            @Override

@@ -10,15 +10,25 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.TrendingViewHolder> {
 
     private Context Ctx;
-    private List<TrendingModel> trendingList;
+    private ArrayList<Product> trendingList;
 
-    public TrendingAdapter(Context Ctx, List<TrendingModel> trendingList) {
+    public TrendingAdapter(Context Ctx) {
         this.Ctx = Ctx;
+    }
+
+    private ArrayList<Product> getTrendingList() {
+        return trendingList;
+    }
+
+    void setListProduct(ArrayList<Product> trendingList) {
         this.trendingList = trendingList;
     }
 
@@ -32,11 +42,13 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.Trendi
 
     @Override
     public void onBindViewHolder(@NonNull TrendingAdapter.TrendingViewHolder trendingViewHolder, int i) {
-        final TrendingModel kerajinan = trendingList.get(i);
+        final Product kerajinan = trendingList.get(i);
 
         trendingViewHolder.textViewName.setText(kerajinan.getName());
 
-        trendingViewHolder.imageView.setImageDrawable(Ctx.getResources().getDrawable(kerajinan.getImage()));
+        Glide.with(Ctx)
+                .load(getTrendingList().get(i).getPhoto())
+                .into(trendingViewHolder.imageView);
 
 //        gtrViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
 //            @Override

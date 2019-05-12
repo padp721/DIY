@@ -20,86 +20,115 @@
             android:orientation="vertical"
             android:paddingBottom="60dp">
 
-            <TextView
-                android:id="@id/title_trending"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Trending"
-                android:layout_marginLeft="7dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:textSize="20dp"/>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/trending"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/title_trending"/>
-
-            <TextView
-                android:id="@+id/title_kerajinan"
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_trending"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kerajinan"
-                android:layout_marginLeft="7dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:textSize="20dp"
-                android:layout_below="@id/trending"/>
+                android:layout_margin="5dp">
 
-            <TextView
-                android:id="@+id/seeall_kerajinan"
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@id/title_trending"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Trending"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginLeft="7dp"
+                        android:textSize="20dp"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/trending"
+                        android:layout_margin="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_trending"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_product"
                 android:layout_width="match_parent"
-                android:gravity="right|center_vertical"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/title_kerajinan"
-                android:text="Lihat Semua > "
-                android:layout_marginLeft="7dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:layout_toEndOf="@id/title_kerajinan"
-                android:layout_below="@id/trending"
-                android:onClick="all_kerajinan"
-                android:clickable="true"/>
+                android:layout_margin="5dp"
+                android:layout_below="@+id/card_trending">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/kerajinan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/title_kerajinan"/>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/title_article"
+                    <TextView
+                        android:id="@+id/title_kerajinan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New Product"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginLeft="7dp"
+                        android:textSize="20dp"/>
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/kerajinan"
+                            android:layout_margin="7dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/title_kerajinan"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_article"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Artikel"
-                android:layout_marginLeft="7dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:textSize="20dp"
-                android:layout_below="@id/kerajinan"
-                />
+                android:layout_margin="5dp"
+                android:layout_below="@id/card_product">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/seeall_article"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/title_article"
-                android:text="Lihat Semua > "
-                android:layout_marginLeft="7dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:layout_below="@id/kerajinan"
-                android:layout_toEndOf="@id/title_article"
-                android:gravity="right|center_vertical"
-                android:onClick="all_article"
-                android:clickable="true"/>
+                    <TextView
+                        android:id="@+id/title_article"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Artikel"
+                        android:layout_marginTop="2dp"
+                        android:textSize="20dp"
+                        android:layout_marginLeft="7dp"
+                        />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/article"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/title_article"/>
+                    <TextView
+                        android:id="@+id/seeall_article"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/title_article"
+                        android:text="Lihat Semua > "
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginRight="7dp"
+                        android:layout_toEndOf="@id/title_article"
+                        android:gravity="right|center_vertical"
+                        android:onClick="all_article"
+                        android:clickable="true"/>
+
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/article"
+                            android:layout_margin="7dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/title_article"/>
+
+
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
 
         </RelativeLayout>
 

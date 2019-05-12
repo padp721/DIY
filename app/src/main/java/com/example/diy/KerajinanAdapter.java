@@ -12,16 +12,27 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class KerajinanAdapter extends RecyclerView.Adapter<KerajinanAdapter.KerajinanViewHolder> {
 
     private Context Ctx;
-    private List<KerajinanModel> kerajianList;
+    private ArrayList<Product> kerajianList;
 
-    public KerajinanAdapter(Context Ctx, List<KerajinanModel> kerajianList) {
+    public KerajinanAdapter(Context Ctx) {
         this.Ctx = Ctx;
-        this.kerajianList = kerajianList;
+    }
+
+    private ArrayList<Product> getKerajinanList() {
+        return kerajianList;
+    }
+
+    void setListProduct(ArrayList<Product> kerajinanList) {
+        this.kerajianList = kerajinanList;
     }
 
     @NonNull
@@ -34,12 +45,28 @@ public class KerajinanAdapter extends RecyclerView.Adapter<KerajinanAdapter.Kera
 
     @Override
     public void onBindViewHolder(@NonNull KerajinanViewHolder kerajinanViewHolder, int i) {
-        final KerajinanModel kerajinan = kerajianList.get(i);
+        final Product kerajinan = kerajianList.get(i);
 
-        kerajinanViewHolder.textViewYear.setText(kerajinan.getYear());
+        kerajinanViewHolder.textViewYear.setText(kerajinan.getRemarks());
         kerajinanViewHolder.textViewName.setText(kerajinan.getName());
 
-        kerajinanViewHolder.imageView.setImageDrawable(Ctx.getResources().getDrawable(kerajinan.getImage()));
+        Glide.with(Ctx)
+                .load(getKerajinanList().get(i).getPhoto())
+                .into(kerajinanViewHolder.imageView);
+
+
+//        gtrViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(mCtx, gtr.getName(), Toast.LENGTH_SHORT).show();
+//
+//                Intent intent = new Intent(mCtx, ViewDetail.class);
+//                intent.putExtra("image_url", gtr.getImage());
+//                intent.putExtra("image_name", gtr.getName());
+//                intent.putExtra("image_desc", gtr.getDesc());
+//                mCtx.startActivity(intent);
+//            }
+//        });
 
     }
 
