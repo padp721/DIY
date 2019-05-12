@@ -8,67 +8,85 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.CategoryViewHolder> {
+public class ListArtikelAdapter extends RecyclerView.Adapter<ListArtikelAdapter.ImageViewHolder>{
 
-    public ListArtikelAdapter(Context context) {
-        this.context = context;
+    private Context mContext;
+    private ArrayList<Artikel> mData = new ArrayList<>();
+
+    public ListArtikelAdapter(Context Ctx) {
+        this.mContext = Ctx;
     }
 
-    private Context context;
-
-    public ArrayList<Artikel> getListArtikel() {
-        return listArtikel;
+    private ArrayList<Artikel> getArtikelList() {
+        return mData;
     }
 
-    public void setListArtikel(ArrayList<Artikel> listArtikel) {
-        this.listArtikel = listArtikel;
-    }
-
-    private ArrayList<Artikel> listArtikel;
-
-    @NonNull
-    @Override
-    public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View itemRow = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_row_article, viewGroup, false);
-        return new CategoryViewHolder(itemRow);
+    void setListProduct(ArrayList<Artikel> artikelList) {
+        this.mData = artikelList;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryViewHolder categoryViewHolder, int position) {
-        categoryViewHolder.tvName.setText(getListArtikel().get(position).getName());
-        categoryViewHolder.tvRemarks.setText(getListArtikel().get(position).getRemarks());
-        categoryViewHolder.tvTanggal.setText(getListArtikel().get(position).getTanggal());
-        Glide.with(context)
-                .load(getListArtikel().get(position).getPhoto())
-                .apply(new RequestOptions().override(55, 55))
-                .into(categoryViewHolder.imgPhoto);
+    public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view;
+        LayoutInflater mInflater = LayoutInflater.from(mContext);
+        view = mInflater.inflate(R.layout.item_row_article, parent, false);
+        return new ImageViewHolder(view);
+
+    }
+
+    @Override
+    public void onBindViewHolder(ImageViewHolder holder, final int position) {
+
+        holder.JudulArtikel.setText(mData.get(position).getTittle());
+        holder.GambarArtikel.setImageResource(Integer.parseInt(mData.get(position).getThumbnail()));
+
+        //set click listener
+        holder.artikelList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //passing data to the artikel activity
+                Intent intent = new Intent(mContext, DetailListArtikel.class);
+                intent.putExtra("Title", mData.get(position).getTittle());
+                intent.putExtra("Description", mData.get(position).getDescription());
+                intent.putExtra("Thumbnail", Integer.parseInt(mData.get(position).getThumbnail()));
+                intent.putExtra("Category", mData.get(position).getCategory());
+                intent.putExtra("Tgl", mData.get(position).getTgl());
+
+
+                //start the activity
+                mContext.startActivity(intent);
+            }
+        });
+
     }
 
     @Override
     public int getItemCount() {
-        return getListArtikel().size();
+        return mData.size();
     }
 
-    public class CategoryViewHolder extends RecyclerView.ViewHolder {
-        TextView tvName;
-        TextView tvRemarks;
-        TextView tvTanggal;
-        ImageView imgPhoto;
+    public static class ImageViewHolder extends RecyclerView.ViewHolder{
 
-        public CategoryViewHolder(@NonNull View itemView) {
+        ImageView GambarArtikel;
+        TextView JudulArtikel;
+        LinearLayout artikelList;
+
+        public ImageViewHolder(View itemView) {
             super(itemView);
+            GambarArtikel = itemView.findViewById(R.id.artikel_gmbr);
+            JudulArtikel = itemView.findViewById(R.id.judul);
+            artikelList = itemView.findViewById(R.id.artikel_list);
 
-            tvName = itemView.findViewById(R.id.tv_item_name);
-            tvRemarks = itemView.findViewById(R.id.tv_item_remarks);
-            tvTanggal = itemView.findViewById(R.id.tv_item_tanggal);
-            imgPhoto = itemView.findViewById(R.id.img_item_photo);
         }
     }
 }

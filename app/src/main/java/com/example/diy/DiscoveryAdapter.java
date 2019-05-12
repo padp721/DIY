@@ -49,9 +49,7 @@ public class DiscoveryAdapter  extends RecyclerView.Adapter<DiscoveryAdapter.MyV
         final Product kerajinan = mData.get(position);
 
         holder.produkName.setText(mData.get(position).getName());
-        Glide.with(mContext)
-                .load(getDiscoveryList().get(position).getPhoto())
-                .into(holder.produkImg);
+        holder.produkImg.setImageResource(Integer.parseInt(kerajinan.getPhoto()));
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,9 +57,10 @@ public class DiscoveryAdapter  extends RecyclerView.Adapter<DiscoveryAdapter.MyV
 
                 Intent intent = new Intent(mContext, ProductDetail.class);
                 intent.putExtra("nama", kerajinan.getName());
-                intent.putExtra("photo", kerajinan.getPhoto());
+                intent.putExtra("photo",Integer.parseInt(kerajinan.getPhoto()));
                 intent.putExtra("tgl", kerajinan.getRemarks());
                 intent.putExtra("step", kerajinan.getTahapan());
+                intent.putExtra("material", kerajinan.getMaterial());
                 mContext.startActivity(intent);
             }
         });

@@ -49,11 +49,7 @@ public class KerajinanAdapter extends RecyclerView.Adapter<KerajinanAdapter.Kera
 
         kerajinanViewHolder.textViewYear.setText(kerajinan.getRemarks());
         kerajinanViewHolder.textViewName.setText(kerajinan.getName());
-
-        Glide.with(Ctx)
-                .load(getKerajinanList().get(i).getPhoto())
-                .into(kerajinanViewHolder.imageView);
-
+        kerajinanViewHolder.imageView.setImageResource(Integer.parseInt(kerajinan.getPhoto()));
 
         kerajinanViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,9 +57,10 @@ public class KerajinanAdapter extends RecyclerView.Adapter<KerajinanAdapter.Kera
 
                 Intent intent = new Intent(Ctx, ProductDetail.class);
                 intent.putExtra("nama", kerajinan.getName());
-                intent.putExtra("photo", kerajinan.getPhoto());
+                intent.putExtra("photo",Integer.parseInt(kerajinan.getPhoto()));
                 intent.putExtra("tgl", kerajinan.getRemarks());
                 intent.putExtra("step", kerajinan.getTahapan());
+                intent.putExtra("material", kerajinan.getMaterial());
                 Ctx.startActivity(intent);
             }
         });

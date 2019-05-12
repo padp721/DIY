@@ -9,34 +9,35 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
-public class DetailListArtikel extends AppCompatActivity {
-    TextView txtName, des, pub;
-    ImageView image;
-
+public class DetailListArtikel  extends AppCompatActivity {
+    private TextView tvtitle, tvdescribtion, tvcategory, tvtgl;
+    private ImageView img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_artikel);
 
-        txtName=findViewById(R.id.name);
-        des=findViewById(R.id.remarks);
-        pub=findViewById(R.id.tanggal);
-        image=findViewById(R.id.gambar);
+        tvtitle = findViewById(R.id.txtittle);
+        tvdescribtion = findViewById(R.id.txtDesc);
+        tvcategory = findViewById(R.id.txtCat);
+        tvtgl = findViewById(R.id.txttgl);
+        img = findViewById(R.id.artikelthumbnail);
 
-        Intent i = getIntent();
+        //Receive Data
+        Intent intent = getIntent();
+        String Title = intent.getExtras().getString("Title");
+        String Description = intent.getExtras().getString("Description");
+        String Category = intent.getExtras().getString("Category");
+        String Tgl = intent.getExtras().getString("Tgl");
+        int image = intent.getExtras().getInt("Thumbnail");
 
-        String name = i.getStringExtra("name");
-        String remarks= i.getStringExtra("remarks");
-        String tanggal= i.getStringExtra("tanggal");
-        String gambar = i.getStringExtra("gambar");
+        //
 
-        txtName.setText(name);
-        des.setText(remarks);
-        pub.setText(tanggal);
-        Glide.with(this)
-                .load(gambar)
-                .apply(new RequestOptions())
-                .into(image);
+        tvtitle.setText(Title);
+        tvdescribtion.setText(Description);
+        tvcategory.setText(Category);
+        tvtgl.setText(Tgl);
+        img.setImageResource(image);
+
     }
-
 }

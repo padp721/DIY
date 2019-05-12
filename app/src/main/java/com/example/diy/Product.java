@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Product {
     private String name, remarks, photo;
     private ArrayList<String> tahapan = new ArrayList<>();
+    private ArrayList<String> material = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -31,5 +32,13 @@ public class Product {
 
     public void setTahapan(ArrayList<String> tahapan) {
         this.tahapan = tahapan;
+    }
+
+    public ArrayList<String> getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(ArrayList<String> material) {
+        this.material = material;
     }
 }

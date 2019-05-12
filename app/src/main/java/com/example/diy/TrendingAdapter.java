@@ -46,10 +46,7 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.Trendi
         final Product kerajinan = trendingList.get(i);
 
         trendingViewHolder.textViewName.setText(kerajinan.getName());
-
-        Glide.with(Ctx)
-                .load(getTrendingList().get(i).getPhoto())
-                .into(trendingViewHolder.imageView);
+        trendingViewHolder.imageView.setImageResource(Integer.parseInt(kerajinan.getPhoto()));
 
         trendingViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,9 +54,10 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.Trendi
 
                 Intent intent = new Intent(Ctx, ProductDetail.class);
                 intent.putExtra("nama", kerajinan.getName());
-                intent.putExtra("photo", kerajinan.getPhoto());
+                intent.putExtra("photo",Integer.parseInt(kerajinan.getPhoto()));
                 intent.putExtra("tgl", kerajinan.getRemarks());
                 intent.putExtra("step", kerajinan.getTahapan());
+                intent.putExtra("material", kerajinan.getMaterial());
                 Ctx.startActivity(intent);
             }
         });

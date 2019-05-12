@@ -1,41 +1,63 @@
 package com.example.diy;
 
 public class Artikel {
-    private String name;
-    private String remarks;
-    private String tanggal;
-    private String photo;
 
-    public String getTanggal() {
-        return tanggal;
+    private String Tittle;
+    private String Category;
+    private String Description;
+    private String Tgl;
+    private String Thumbnail;
+
+    public Artikel(){
+
     }
 
-    public void setTanggal(String tanggal) {
-        this.tanggal = tanggal;
+    public Artikel(String tittle, String category, String description, String tgl, String thumbnail) {
+        Tittle = tittle;
+        Category = category;
+        Description = description;
+        Thumbnail = thumbnail;
+        Tgl = tgl;
     }
 
-    public String getName() {
-        return name;
+    public String getTgl() {
+        return Tgl;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTgl(String tgl) {
+        Tgl = tgl;
     }
 
-    public String getRemarks() {
-        return remarks;
+
+    public String getTittle() {
+        return Tittle;
     }
 
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
+    public String getCategory() {
+        return Category;
     }
 
-    public String getPhoto() {
-        return photo;
+    public String getDescription() {
+        return Description;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public String getThumbnail() {
+        return Thumbnail;
     }
 
+    public void setTittle(String tittle) {
+        Tittle = tittle;
+    }
+
+    public void setCategory(String category) {
+        Category = category;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        Thumbnail = thumbnail;
+    }
 }

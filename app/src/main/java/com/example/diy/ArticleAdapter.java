@@ -1,6 +1,7 @@
 package com.example.diy;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -44,24 +45,26 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
     public void onBindViewHolder(@NonNull ArticleAdapter.ArticleViewHolder articleViewHolder, int i) {
         final Artikel article = articleList.get(i);
 
-        articleViewHolder.textViewName.setText(article.getName());
+        articleViewHolder.textViewName.setText(article.getTittle());
+        articleViewHolder.imageView.setImageResource(Integer.parseInt(article.getThumbnail()));
 
-        Glide.with(Ctx)
-                .load(getArtikelList().get(i).getPhoto())
-                .into(articleViewHolder.imageView);
+        articleViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-//        gtrViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(mCtx, gtr.getName(), Toast.LENGTH_SHORT).show();
-//
-//                Intent intent = new Intent(mCtx, ViewDetail.class);
-//                intent.putExtra("image_url", gtr.getImage());
-//                intent.putExtra("image_name", gtr.getName());
-//                intent.putExtra("image_desc", gtr.getDesc());
-//                mCtx.startActivity(intent);
-//            }
-//        });
+                //passing data to the artikel activity
+                Intent intent = new Intent(Ctx, DetailListArtikel.class);
+                intent.putExtra("Title", article.getTittle());
+                intent.putExtra("Description", article.getDescription());
+                intent.putExtra("Thumbnail", Integer.parseInt(article.getThumbnail()));
+                intent.putExtra("Category", article.getCategory());
+                intent.putExtra("Tgl", article.getTgl());
+
+
+                //start the activity
+                Ctx.startActivity(intent);
+            }
+        });
     }
 
     @Override

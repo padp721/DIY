@@ -15,8 +15,9 @@ import java.util.ArrayList;
 
 public class ProductDetail extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    StepsAdapter adapter;
+    RecyclerView recyclerViewS, recyclerViewM;
+    StepsAdapter adapterS;
+    MaterialAdapter adapterM;
     private static final String TAG = "ViewDetail";
 
     @Override
@@ -34,18 +35,19 @@ public class ProductDetail extends AppCompatActivity {
         if (getIntent().hasExtra("tgl") && getIntent().hasExtra("nama")){
             Log.d(TAG, "getIncomingIntent: found intent extras.");
 
-            String productImage = getIntent().getStringExtra("photo");
+            int productImage = getIntent().getExtras().getInt("photo");
             String productName = getIntent().getStringExtra("nama");
             String productDate = getIntent().getStringExtra("tgl");
             ArrayList<String> productStep = (ArrayList<String>) getIntent().getSerializableExtra("step");
+            ArrayList<String> productMaterial = (ArrayList<String>) getIntent().getSerializableExtra("material");
 
             Log.d(TAG, String.valueOf(productStep));
 
-            setImage(productImage, productName, productDate, productStep);
+            setImage(productImage, productName, productDate, productStep, productMaterial);
         }
     }
 
-    private void setImage(String productImage, String productName, String productDate, ArrayList<String> productStep){
+    private void setImage(int productImage, String productName, String productDate, ArrayList<String> productStep, ArrayList<String> productMaterial){
         TextView name = findViewById(R.id.name);
         name.setText(productName);
 
@@ -55,10 +57,15 @@ public class ProductDetail extends AppCompatActivity {
         TextView tgl = findViewById(R.id.tgl);
         tgl.setText(productDate);
 
-        recyclerView = (RecyclerView) findViewById(R.id.langkah);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new StepsAdapter(this, productStep);
-        recyclerView.setAdapter(adapter);
+        recyclerViewS = (RecyclerView) findViewById(R.id.langkah);
+        recyclerViewM = (RecyclerView) findViewById(R.id.material);
+        recyclerViewS.setHasFixedSize(true);
+        recyclerViewM.setHasFixedSize(true);
+        recyclerViewS.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewM.setLayoutManager(new LinearLayoutManager(this));
+        adapterS = new StepsAdapter(this, productStep);
+        adapterM = new MaterialAdapter(this, productMaterial);
+        recyclerViewS.setAdapter(adapterS);
+        recyclerViewM.setAdapter(adapterM);
     }
 }
