@@ -2,10 +2,12 @@ package com.example.diy;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+
         kerajinan = (RecyclerView) findViewById(R.id.kerajinan);
         trending = (RecyclerView) findViewById(R.id.trending);
         article = (RecyclerView) findViewById(R.id.article);
@@ -37,6 +40,21 @@ public class MainActivity extends AppCompatActivity {
         kerajinanList.addAll(ProductData.getListData());
         articleList.addAll(ArtikelData.getListData());
         trendingList.addAll(ProductData.getListData());
+
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_home:
+                        break;
+                    case R.id.navigation_discover:
+                        Intent intent = new Intent(MainActivity.this, DiscoveryMain.class);
+                        startActivity(intent);
+                        break;
+                }
+                return false;
+            }
+        });
 
         showList();
     }
@@ -56,13 +74,13 @@ public class MainActivity extends AppCompatActivity {
         article.setAdapter(Aadapter);
     }
 
-    public void all_kerajinan(View v) {
-        Intent intent = new Intent(this, NewProduct.class);
+    public void all_article(View v) {
+        Intent intent = new Intent(this, ArticleFullList.class);
         startActivity(intent);
     }
 
-    public void all_article(View v) {
-        Intent intent = new Intent(this, ArticleFullList.class);
+    public void discover(View v) {
+        Intent intent = new Intent(this, DiscoveryMain.class);
         startActivity(intent);
     }
 

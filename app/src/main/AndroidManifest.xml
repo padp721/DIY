@@ -22,6 +22,9 @@
         <activity android:name=".ArticleFullList"></activity>
         <activity android:name=".detail_artikel"></activity>
         <activity android:name=".NewProduct"></activity>
+        <activity android:name=".ProductDetail"></activity>
+        <activity android:name=".DiscoveryMain">
+        </activity>
     </application>
 
 </manifest>

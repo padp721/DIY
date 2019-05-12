@@ -1,7 +1,10 @@
 package com.example.diy;
 
+import java.util.ArrayList;
+
 public class Product {
     private String name, remarks, photo;
+    private ArrayList<String> tahapan = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -20,5 +23,13 @@ public class Product {
     }
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public ArrayList<String> getTahapan() {
+        return tahapan;
+    }
+
+    public void setTahapan(ArrayList<String> tahapan) {
+        this.tahapan = tahapan;
     }
 }

@@ -55,18 +55,18 @@ public class KerajinanAdapter extends RecyclerView.Adapter<KerajinanAdapter.Kera
                 .into(kerajinanViewHolder.imageView);
 
 
-//        gtrViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(mCtx, gtr.getName(), Toast.LENGTH_SHORT).show();
-//
-//                Intent intent = new Intent(mCtx, ViewDetail.class);
-//                intent.putExtra("image_url", gtr.getImage());
-//                intent.putExtra("image_name", gtr.getName());
-//                intent.putExtra("image_desc", gtr.getDesc());
-//                mCtx.startActivity(intent);
-//            }
-//        });
+        kerajinanViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Ctx, ProductDetail.class);
+                intent.putExtra("nama", kerajinan.getName());
+                intent.putExtra("photo", kerajinan.getPhoto());
+                intent.putExtra("tgl", kerajinan.getRemarks());
+                intent.putExtra("step", kerajinan.getTahapan());
+                Ctx.startActivity(intent);
+            }
+        });
 
     }
 

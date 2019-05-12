@@ -1,6 +1,7 @@
 package com.example.diy;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -50,18 +51,18 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.Trendi
                 .load(getTrendingList().get(i).getPhoto())
                 .into(trendingViewHolder.imageView);
 
-//        gtrViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(mCtx, gtr.getName(), Toast.LENGTH_SHORT).show();
-//
-//                Intent intent = new Intent(mCtx, ViewDetail.class);
-//                intent.putExtra("image_url", gtr.getImage());
-//                intent.putExtra("image_name", gtr.getName());
-//                intent.putExtra("image_desc", gtr.getDesc());
-//                mCtx.startActivity(intent);
-//            }
-//        });
+        trendingViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Ctx, ProductDetail.class);
+                intent.putExtra("nama", kerajinan.getName());
+                intent.putExtra("photo", kerajinan.getPhoto());
+                intent.putExtra("tgl", kerajinan.getRemarks());
+                intent.putExtra("step", kerajinan.getTahapan());
+                Ctx.startActivity(intent);
+            }
+        });
     }
 
     @Override
