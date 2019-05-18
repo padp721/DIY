@@ -14,12 +14,16 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.TrendingViewHolder> {
 
     private Context Ctx;
     private ArrayList<Product> trendingList;
+
+
 
     public TrendingAdapter(Context Ctx) {
         this.Ctx = Ctx;

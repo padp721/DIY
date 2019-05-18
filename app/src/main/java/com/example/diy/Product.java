@@ -2,7 +2,8 @@ package com.example.diy;
 
 import java.util.ArrayList;
 
-public class Product {
+public class Product implements Comparable<Product>{
+    private int trending;
     private String name, remarks, photo;
     private ArrayList<String> tahapan = new ArrayList<>();
     private ArrayList<String> material = new ArrayList<>();
@@ -41,4 +42,24 @@ public class Product {
     public void setMaterial(ArrayList<String> material) {
         this.material = material;
     }
+
+    public int getTrending() {
+        return trending;
+    }
+
+    public void setTrending(int trending) {
+        this.trending = trending;
+    }
+
+    @Override
+    public int compareTo(Product compareProduct) {
+
+        int compareTrending = ((Product)compareProduct).getTrending();
+
+        return compareTrending - this.trending;
+
+        /* For Descending order do like this */
+        //return compareage-this.studentage;
+    }
+
 }

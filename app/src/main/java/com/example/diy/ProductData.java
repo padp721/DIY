@@ -5,13 +5,13 @@ import java.util.Arrays;
 
 public class ProductData {
     public static String[][] data = new String[][]{
-            {"Kotak pensil botol bekas", "10 April 2019", String.valueOf(R.drawable.ee)},
-            {"Lampu Gantung Dari Sedotan", "13 April 2019", String.valueOf(R.drawable.aa)},
-            {"Pot Bunga Kotak Susu", "13 April 2019", String.valueOf(R.drawable.bb)},
-            {"Taplak meja sedotan", "12 April 2019", String.valueOf(R.drawable.cc)},
-            {"Hiasan lampu kardus", "12 April 2019", String.valueOf(R.drawable.dd)},
-            {"Kotak pensil botol bekas", "10 April 2019", String.valueOf(R.drawable.ee)},
-            {"Bingkai foto dari kardus","10 April 2019", String.valueOf(R.drawable.ff)}
+            {"3","Kotak pensil botol bekas", "10 April 2019", String.valueOf(R.drawable.ee)},
+            {"6","Lampu Gantung Dari Sedotan", "13 April 2019", String.valueOf(R.drawable.aa)},
+            {"7","Pot Bunga Kotak Susu", "13 April 2019", String.valueOf(R.drawable.bb)},
+            {"5","Taplak meja sedotan", "12 April 2019", String.valueOf(R.drawable.cc)},
+            {"9","Hiasan lampu kardus", "12 April 2019", String.valueOf(R.drawable.dd)},
+            {"2","Kotak pensil botol bekas", "10 April 2019", String.valueOf(R.drawable.ee)},
+            {"1","Bingkai foto dari kardus","10 April 2019", String.valueOf(R.drawable.ff)}
     };
     public static String[][] step = new String[][]{
             {"Potong bagian bawah dari dua botol plastik dengan gunting tajam."
@@ -74,9 +74,10 @@ public class ProductData {
         int i = 0;
         for (String[] aData : data) {
             product = new Product();
-            product.setName(aData[0]);
-            product.setRemarks(aData[1]);
-            product.setPhoto(aData[2]);
+            product.setTrending(Integer.parseInt(aData[0]));
+            product.setName(aData[1]);
+            product.setRemarks(aData[2]);
+            product.setPhoto(aData[3]);
             product.setTahapan(convert(step[i]));
             product.setMaterial(convert(material[i]));
 

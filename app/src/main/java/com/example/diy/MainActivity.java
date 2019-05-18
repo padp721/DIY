@@ -13,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Product> kerajinanList = new ArrayList<>();
     private ArrayList<Product> trendingList = new ArrayList<>();
     private ArrayList<Artikel> articleList = new ArrayList<>();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         kerajinanList.addAll(ProductData.getListData());
         articleList.addAll(ArtikelData.getListData());
         trendingList.addAll(ProductData.getListData());
+
+        Collections.sort(trendingList);
 
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
