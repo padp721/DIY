@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">DIY</string>
+    <string name="app_name">DIY.ID</string>
 
     <string name="home">Home</string>
-    <string name="discover">Discover</string>
+    <string name="discover">Explore DIY</string>
     <string name="title_activity_new">NewActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

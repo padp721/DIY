@@ -51,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.navigation_home:
-                        break;
                     case R.id.navigation_discover:
                         Intent intent = new Intent(MainActivity.this, DiscoveryMain.class);
                         startActivity(intent);

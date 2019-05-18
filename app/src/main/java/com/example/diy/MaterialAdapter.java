@@ -32,7 +32,7 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.Materi
     public void onBindViewHolder(@NonNull MaterialViewHolder materialViewHolder, int i) {
 
         materialViewHolder.material.setText(materialList.get(i));
-        materialViewHolder.no.setText(String.valueOf(i+1+"."));
+
 
             }
 
@@ -49,7 +49,7 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.Materi
             super(itemView);
 
             material = itemView.findViewById(R.id.materials);
-            no = itemView.findViewById(R.id.no);
+
         }
     }
 }

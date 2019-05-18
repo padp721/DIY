@@ -3,10 +3,12 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/abeezee</item>
         <item>@font/baloo</item>
+        <item>@font/cantarell</item>
         <item>@font/catamaran_black</item>
         <item>@font/catamaran_extrabold</item>
         <item>@font/catamaran_medium</item>
         <item>@font/doppio_one</item>
+        <item>@font/gilda_display</item>
         <item>@font/secular_one</item>
     </array>
 </resources>

@@ -1,9 +1,13 @@
 package com.example.diy;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,5 +28,8 @@ public class DiscoveryMain extends AppCompatActivity {
         produkAdapter.setListDiscover((ArrayList<Product>) lsProduk);
         produkrv.setLayoutManager(new GridLayoutManager(this, 3));
         produkrv.setAdapter(produkAdapter);
+
+
+
     }
 }
