@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 public class ProductData {
     public static String[][] data = new String[][]{
+            {"Kotak pensil botol bekas", "10 April 2019", String.valueOf(R.drawable.ee)},
             {"Lampu Gantung Dari Sedotan", "13 April 2019", String.valueOf(R.drawable.aa)},
             {"Pot Bunga Kotak Susu", "13 April 2019", String.valueOf(R.drawable.bb)},
             {"Taplak meja sedotan", "12 April 2019", String.valueOf(R.drawable.cc)},
@@ -13,6 +14,12 @@ public class ProductData {
             {"Bingkai foto dari kardus","10 April 2019", String.valueOf(R.drawable.ff)}
     };
     public static String[][] step = new String[][]{
+            {"Potong bagian bawah dari dua botol plastik dengan gunting tajam."
+                    ,"Tempatkan ritsliting di bagian tepi atas salah satu botol dengan sisi tarik ritsliting menghadap keluar. Gunakan lem panas untuk merekatkannya di tempat. Terus lem sampai di ujung ritsleting."
+                    ,"Buka ritsleting sehingga Anda bisa merekatkan bagian botol lainnya."
+                    ,"Rekatkan sisi lain dari ritsleting di dalam botol ke dua menggunakan lem panas. Ingatlah untuk menyisakan setidaknya 1/8 ici dari tepi botol ke gigi ritsleting."
+                    ,"Sekarang kumpulkan semua barang yang berserakan dan masukkan masing-masing ke tempat khusus mereka sendiri. Anda akan sangat senang melakukannya."},
+
             {"Sebelum memulai, terlebih dahulu kita siapkan dahulu semua alat dan bahannya."
                     , "Potong semua sedotan yang telah disiapkan dengan ukuran sesuai selera. Berikutnya susunlah potongan sedotan membentuk bagian-bagian bangun segi enam. Untuk membantu menyambung potongan sedotannya, gunakan kawat dengan cara dimasukkan ke dalam sedotan lalu dirangkai."
                     , "Rangkai semua bagian sedotan yang telah berbentuk segienam."
@@ -52,6 +59,7 @@ public class ProductData {
                     ,"Langkah terakhir dalam cara membuat bingkai foto dari kardus adalah dengan membuat dudukan atau sanggahan. Tempelkan dudukan tersebut di cover penutup pada bagian belakang."}
     };
     public static String[][] material = new String[][]{
+            {"Gunting","Cutter","Penggaris","Lem","Manik-manik","Spidol","Cat warna"},
             {"Sedotan", "Kawat", "Kain flanel", "Tang potong", "Gunting"},
             {"Karton susu bekas ukuran 1 liter", "Cutter", "Lem tembak","Kain perca", "Pot kecil berisikan tanaman pilihan anda"},
             {"Gunting", "Jarum", "Benang wol", "Sedotan"},

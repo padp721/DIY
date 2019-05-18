@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/colorNavigationText">
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/main"
@@ -24,7 +25,8 @@
                 android:id="@+id/card_trending"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp">
+                android:layout_margin="15dp"
+                app:cardCornerRadius="10dp">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -34,14 +36,20 @@
                         android:id="@id/title_trending"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Trending"
-                        android:layout_marginTop="2dp"
                         android:layout_marginLeft="7dp"
-                        android:textSize="20dp"/>
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/catamaran_black"
+                        android:text="TRENDING"
+                        android:textColor="@color/tulisan"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/trending"
-                        android:layout_margin="7dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginRight="7dp"
+                        android:layout_marginBottom="7dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/title_trending"/>
@@ -54,8 +62,9 @@
                 android:id="@+id/card_product"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_below="@+id/card_trending">
+                android:layout_margin="15dp"
+                android:layout_below="@+id/card_trending"
+                app:cardCornerRadius="10dp">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -65,10 +74,13 @@
                         android:id="@+id/title_kerajinan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="New Product"
                         android:layout_marginTop="2dp"
                         android:layout_marginLeft="7dp"
-                        android:textSize="20dp"/>
+                        android:fontFamily="@font/catamaran_black"
+                        android:text="NEW PRODUCT"
+                        android:textColor="@color/tulisan"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                         <android.support.v7.widget.RecyclerView
                             android:id="@+id/kerajinan"
@@ -85,8 +97,9 @@
                 android:id="@+id/card_article"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_below="@id/card_product">
+                android:layout_margin="15dp"
+                android:layout_below="@id/card_product"
+                app:cardCornerRadius="10dp">
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
@@ -95,10 +108,13 @@
                         android:id="@+id/title_article"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Artikel"
                         android:layout_marginTop="2dp"
-                        android:textSize="20dp"
                         android:layout_marginLeft="7dp"
+                        android:fontFamily="@font/catamaran_black"
+                        android:text="ARTIKEL"
+                        android:textColor="@color/tulisan"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
                         />
 
                     <TextView
@@ -107,7 +123,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBottom="@id/title_article"
-                        android:text="Lihat Semua > "
+                        android:text="Lihat Semua"
                         android:layout_marginTop="2dp"
                         android:layout_marginBottom="2dp"
                         android:layout_marginRight="7dp"

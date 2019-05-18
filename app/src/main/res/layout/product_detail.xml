@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="100">
 
@@ -12,23 +14,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <android.support.v7.widget.AppCompatImageView
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:id="@+id/image"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher"/>
+            <!--<android.support.v7.widget.AppCompatImageView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="250dp"-->
+                <!--android:id="@+id/image"-->
+                <!--android:scaleType="centerCrop"-->
+                <!--android:src="@mipmap/ic_launcher"/>-->
 
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="7dp"
-                android:id="@+id/card_title"
-                android:layout_below="@id/image">
+            <!--<android.support.v7.widget.CardView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="7dp"-->
+                <!--android:id="@+id/card_title"-->
+
+                <!--app:cardCornerRadius="5dp">-->
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:id="@+id/relativ">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -51,39 +55,51 @@
 
                 </RelativeLayout>
 
-            </android.support.v7.widget.CardView>
+            <!--</android.support.v7.widget.CardView>-->
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"
+                android:layout_below="@id/relativ"/>
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="7dp"
-                android:layout_marginRight="7dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
                 android:layout_marginBottom="7dp"
                 android:id="@+id/card_material"
-                android:layout_below="@id/card_title">
+                android:layout_below="@id/image"
+                app:cardCornerRadius="5dp"
+                android:layout_marginTop="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/material_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/material_title"
                         android:layout_marginLeft="7dp"
                         android:layout_marginRight="7dp"
                         android:layout_marginBottom="7dp"
                         android:text="Alat dan Bahan"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp" />
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/material"
-                        android:layout_marginLeft="7dp"
-                        android:layout_marginRight="7dp"
-                        android:layout_marginBottom="7dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/material_title"></android.support.v7.widget.RecyclerView>
+                        android:layout_below="@id/material_title"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginRight="7dp"
+                        android:layout_marginBottom="7dp"></android.support.v7.widget.RecyclerView>
 
                 </RelativeLayout>
 

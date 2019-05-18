@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/parent_layout"
     android:layout_width="wrap_content"
     android:layout_height="150dp"
@@ -11,12 +12,16 @@
             android:layout_margin="5dp"
             >
 
-            <ImageView
+            <com.joooonho.SelectableRoundedImageView
                 android:id="@+id/imageView"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:scaleType="centerCrop"
                 android:layout_centerHorizontal="true"
+                app:sriv_left_bottom_corner_radius="3dp"
+                app:sriv_left_top_corner_radius="3dp"
+                app:sriv_right_bottom_corner_radius="3dp"
+                app:sriv_right_top_corner_radius="3dp"
                 />
 
             <TextView

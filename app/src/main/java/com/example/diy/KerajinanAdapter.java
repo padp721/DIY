@@ -70,7 +70,7 @@ public class KerajinanAdapter extends RecyclerView.Adapter<KerajinanAdapter.Kera
     @Override
     public int getItemCount() {
 
-        return 3;
+        return 5;
     }
 
     class KerajinanViewHolder extends RecyclerView.ViewHolder {

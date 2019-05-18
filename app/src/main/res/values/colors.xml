@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#45b7b7</color>
+    <color name="colorSplash">#45b7b7</color>
+    <color name="colorPrimaryDark">#45b7b7</color>
+    <color name="colorAccent">#45b7b7</color>
 
     <color name="colorNavigationIcon">#dae9f6</color>
     <color name="colorNavigationText">#ffffff</color>
+    <color name="tulisan">#d80d73</color>
 </resources>

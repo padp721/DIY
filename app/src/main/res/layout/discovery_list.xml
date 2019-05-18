@@ -7,7 +7,7 @@
     android:layout_height="250dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="5dp"
-    app:cardCornerRadius="4dp">
+    app:cardCornerRadius="6dp">
 
     <LinearLayout
         android:orientation="vertical"
@@ -15,12 +15,16 @@
         android:layout_height="250dp"
         android:padding="2dp">
 
-        <ImageView
+        <com.joooonho.SelectableRoundedImageView
             android:id="@+id/produk_img"
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:scaleType="centerCrop"
-            android:background="#2d2d2d"/>
+            android:background="#2d2d2d"
+            app:sriv_left_bottom_corner_radius="3dp"
+            app:sriv_left_top_corner_radius="3dp"
+            app:sriv_right_bottom_corner_radius="3dp"
+            app:sriv_right_top_corner_radius="3dp"/>
 
         <TextView
             android:id="@+id/produk_title"
